@@ -4,13 +4,13 @@ export default async function sitemap() {
   const movies = await getMovies();
 
   const movieUrls = movies.map((movie) => ({
-    url: `http://localhost:3000/pelicula/${movie.slug}`,
+    url: `https://appflixo.vercel.app/pelicula/${movie.slug}`,
     lastModified: new Date(),
   }));
 
   return [
     {
-      url: "http://localhost:3000",
+      url: "https://appflixo.vercel.app",
       lastModified: new Date(),
     },
 
