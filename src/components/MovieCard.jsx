@@ -41,8 +41,6 @@ export default function MovieCard({ movie }) {
 
 
 
-        <p>⬇ {movie.downloads || 0} descargas</p>
-
       </div>
         </div>
       </Link>
