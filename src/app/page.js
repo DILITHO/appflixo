@@ -3,6 +3,8 @@ import MovieCard from "../components/MovieCard";
 import FeaturedCarousel from "../components/FeaturedCarousel";
 import SearchBar from "../components/SearchBar";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const movies = await getMovies();
   const totalMovies = movies.length;
