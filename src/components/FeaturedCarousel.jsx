@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function FeaturedCarousel({ movies }) {
   const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (!movies.length) return;
@@ -16,6 +17,17 @@ export default function FeaturedCarousel({ movies }) {
     return () => clearInterval(timer);
   }, [movies]);
 
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   if (!movies.length) return null;
 
   const movie = movies[current];
@@ -24,19 +36,22 @@ export default function FeaturedCarousel({ movies }) {
     <section
       style={{
         display: "flex",
+        flexDirection: isMobile ? "column" : "row",
         alignItems: "center",
         justifyContent: "space-between",
         background: "linear-gradient(90deg,#050505,#1b1b1b)",
         borderRadius: "20px",
         overflow: "hidden",
-        padding: "50px",
+        padding: isMobile ? "25px" : "50px",
         marginBottom: "60px",
-        minHeight: "520px",
+        gap: "40px",
       }}
     >
       <div
         style={{
-          maxWidth: "55%",
+          flex: 1,
+          textAlign: isMobile ? "center" : "left",
+          order: isMobile ? 2 : 1,
         }}
       >
         <span
@@ -52,7 +67,7 @@ export default function FeaturedCarousel({ movies }) {
         <h1
           style={{
             color: "white",
-            fontSize: "55px",
+            fontSize: isMobile ? "42px" : "55px",
             marginTop: "15px",
             marginBottom: "20px",
           }}
@@ -62,7 +77,7 @@ export default function FeaturedCarousel({ movies }) {
 
         <p
           style={{
-            color: "#cccccc",
+            color: "#ccc",
             lineHeight: "1.8",
             fontSize: "18px",
             marginBottom: "25px",
@@ -74,6 +89,8 @@ export default function FeaturedCarousel({ movies }) {
         <div
           style={{
             display: "flex",
+            justifyContent: isMobile ? "center" : "flex-start",
+            flexWrap: "wrap",
             gap: "20px",
             marginBottom: "35px",
             color: "#ddd",
@@ -81,7 +98,6 @@ export default function FeaturedCarousel({ movies }) {
         >
           <span>🎥 {movie.quality}</span>
           <span>📦 {movie.size}</span>
-          <span>⬇ {movie.downloads || 0}</span>
         </div>
 
         <Link href={`/pelicula/${movie.slug}`}>
@@ -102,15 +118,25 @@ export default function FeaturedCarousel({ movies }) {
         </Link>
       </div>
 
-      <img
-        src={movie.poster}
-        alt={movie.title}
+      <div
         style={{
-          width: "320px",
-          borderRadius: "18px",
-          boxShadow: "0 0 35px rgba(0,0,0,.6)",
+          flex: 1,
+          display: "flex",
+          justifyContent: "center",
+          order: isMobile ? 1 : 2,
         }}
-      />
+      >
+        <img
+          src={movie.poster}
+          alt={movie.title}
+          style={{
+            width: "100%",
+            maxWidth: isMobile ? "260px" : "320px",
+            borderRadius: "18px",
+            boxShadow: "0 0 35px rgba(0,0,0,.6)",
+          }}
+        />
+      </div>
     </section>
   );
 }
