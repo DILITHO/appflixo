@@ -35,6 +35,7 @@ export default async function Home() {
   >
     APPFLIXO
   </h1>
+  
   <p>Total de películas: {totalMovies}</p>
 
   <p
