@@ -11,6 +11,7 @@ const [download, setDownload] = useState(movie.download || "");
 const [quality, setQuality] = useState(movie.quality || "");
 const [featured, setFeatured] = useState(movie.featured || false);
 const [size, setSize] = useState(movie.size || "");
+const [password, setPassword] = useState(movie.password || "");
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -33,6 +34,7 @@ await fetch(url, {
     download,
     quality,
     size,
+    password,
     featured,
     downloads: movie.downloads ?? 0,
   }),
@@ -93,6 +95,20 @@ await fetch(url, {
   placeholder="Tamaño"
   style={{ width: "100%", padding: "12px", marginBottom: "15px", borderRadius: "8px" }}
 />
+
+<input
+  type="text"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  placeholder="Contraseña"
+  style={{
+    width: "100%",
+    padding: "12px",
+    marginBottom: "15px",
+    borderRadius: "8px",
+  }}
+/>
+
 <label style={{ display: "block", marginBottom: "15px" }}>
   <input
     type="checkbox"
