@@ -85,12 +85,12 @@ const totalPages = Math.ceil(totalMovies / moviesPerPage);
 </h2>
 
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))",
-          gap: "20px",
-          marginTop: "30px",
-        }}
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gap: "15px",
+    marginTop: "30px",
+  }}
       >
         {currentMovies.map((movie) => (
   <MovieCard

@@ -13,7 +13,7 @@ export default function MovieCard({ movie }) {
       background: "#1a1a1a",
       borderRadius: "12px",
       overflow: "hidden",
-      minHeight: "520px",
+      minHeight: "auto",
       display: "flex",
       flexDirection: "column",
     }}
@@ -23,7 +23,8 @@ export default function MovieCard({ movie }) {
         alt={movie.title}
         style={{
           width: "100%",
-          height: "320px",
+          aspectRatio: "2 / 3",
+          height: "auto",
           objectFit: "cover",
           display: "block",
         }}
