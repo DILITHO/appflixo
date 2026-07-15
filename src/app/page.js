@@ -7,8 +7,12 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const movies = await getMovies();
-  const totalMovies = movies.length;
-  const featuredMovies = await getFeaturedMovies();
+const totalMovies = movies.length;
+const featuredMovies = await getFeaturedMovies();
+
+// Mostrar solo las primeras 20 películas
+const moviesPerPage = 20;
+const currentMovies = movies.slice(0, moviesPerPage);
 
 
   return (
@@ -74,7 +78,7 @@ export default async function Home() {
           marginTop: "30px",
         }}
       >
-        {movies.map((movie) => (
+        {currentMovies.map((movie) => (
   <MovieCard
     key={movie.id}
     movie={movie}
