@@ -19,7 +19,11 @@ export async function getMovies() {
     });
   });
 
-  return movies;
+  movies.sort((a, b) => {
+  return (b.createdAt || 0) - (a.createdAt || 0);
+});
+
+return movies;
 }
 
 export async function getMovieBySlug(slug) {

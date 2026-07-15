@@ -37,6 +37,7 @@ await fetch(url, {
     password,
     featured,
     downloads: movie.downloads ?? 0,
+    createdAt: movie.createdAt ?? Date.now(),
   }),
 });
     alert("Cambios guardados");
