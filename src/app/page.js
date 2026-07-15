@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getMovies, getFeaturedMovies } from "../lib/movies";
 import MovieCard from "../components/MovieCard";
 import FeaturedCarousel from "../components/FeaturedCarousel";
@@ -97,6 +98,64 @@ const totalPages = Math.ceil(totalMovies / moviesPerPage);
     movie={movie}
   />
 ))}
+</div>
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
+    marginTop: "40px",
+    flexWrap: "wrap",
+  }}
+>
+  {currentPage > 1 && (
+    <Link href={`/?page=${currentPage - 1}`}>
+      <button
+        style={{
+          padding: "10px 18px",
+          cursor: "pointer",
+        }}
+      >
+        ← Anterior
+      </button>
+    </Link>
+  )}
+
+  {Array.from({ length: totalPages }, (_, index) => {
+    const page = index + 1;
+
+    return (
+      <Link key={page} href={`/?page=${page}`}>
+        <button
+          style={{
+            padding: "10px 15px",
+            background: page === currentPage ? "#e50914" : "#333",
+            color: "white",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+        >
+          {page}
+        </button>
+      </Link>
+    );
+  })}
+
+  {currentPage < totalPages && (
+    <Link href={`/?page=${currentPage + 1}`}>
+      <button
+        style={{
+          padding: "10px 18px",
+          cursor: "pointer",
+        }}
+      >
+        Siguiente →
+      </button>
+    </Link>
+  )}
 </div>
     </main>
   );
