@@ -84,7 +84,14 @@ const totalPages = Math.ceil(totalMovies / moviesPerPage);
   🔥 Últimas películas
 </h2>
 
-      <div className="movies-grid">s
+      <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))",
+    gap: "20px",
+    marginTop: "30px",
+  }}
+>
         {currentMovies.map((movie) => (
   <MovieCard
     key={movie.id}
