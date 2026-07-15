@@ -5,15 +5,28 @@ import SearchBar from "../components/SearchBar";
 
 export const dynamic = "force-dynamic";
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
+
+  const params = await searchParams;
   const movies = await getMovies();
 const totalMovies = movies.length;
 const featuredMovies = await getFeaturedMovies();
 
-// Mostrar solo las primeras 20 películas
+// Cantidad de películas por página
 const moviesPerPage = 20;
-const currentMovies = movies.slice(0, moviesPerPage);
 
+// Página actual
+const currentPage = Number(params?.page || 1);
+
+// Índices
+const startIndex = (currentPage - 1) * moviesPerPage;
+const endIndex = startIndex + moviesPerPage;
+
+// Películas que se mostrarán
+const currentMovies = movies.slice(startIndex, endIndex);
+
+// Total de páginas
+const totalPages = Math.ceil(totalMovies / moviesPerPage);
 
   return (
     <main
