@@ -56,7 +56,41 @@ const totalPages = Math.ceil(totalMovies / moviesPerPage);
     APPFLIXO
   </h1>
   
-  <p>Total de películas: {totalMovies}</p>
+  <div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "25px",
+    marginBottom: "20px",
+    flexWrap: "wrap",
+  }}
+>
+  <div
+    style={{
+      background: "#1a1a1a",
+      padding: "10px 18px",
+      borderRadius: "12px",
+      color: "white",
+      fontWeight: "bold",
+      fontSize: "18px",
+    }}
+  >
+    🎬 {totalMovies} películas
+  </div>
+
+  <div
+    style={{
+      background: "#1a1a1a",
+      padding: "10px 18px",
+      borderRadius: "12px",
+      color: "white",
+      fontWeight: "bold",
+      fontSize: "18px",
+    }}
+  >
+    👀 Próximamente
+  </div>
+</div>
 
   <p
     style={{
