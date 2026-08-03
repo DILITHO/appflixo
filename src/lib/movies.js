@@ -47,9 +47,13 @@ export async function getMovieBySlug(slug) {
 export async function getRelatedMovies(currentSlug) {
   const movies = await getMovies();
 
-  return movies
-    .filter((movie) => movie.slug !== currentSlug)
-    .slice(0, 6);
+  const filteredMovies = movies.filter(
+    (movie) => movie.slug !== currentSlug
+  );
+
+  const shuffled = filteredMovies.sort(() => Math.random() - 0.5);
+
+  return shuffled.slice(0, 6);
 }
   export async function getFeaturedMovies() {
   const q = query(
