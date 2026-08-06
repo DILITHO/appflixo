@@ -3,6 +3,8 @@ import { getMovies, getFeaturedMovies } from "../lib/movies";
 import MovieCard from "../components/MovieCard";
 import FeaturedCarousel from "../components/FeaturedCarousel";
 import SearchBar from "../components/SearchBar";
+import VisitCounter from "../components/VisitCounter";
+import VisitsDisplay from "../components/VisitsDisplay";
 
 export const dynamic = "force-dynamic";
 
@@ -39,6 +41,7 @@ const totalPages = Math.ceil(totalMovies / moviesPerPage);
         fontFamily: "Arial",
       }}
     >
+
       <div
   style={{
     textAlign: "center",
@@ -78,18 +81,8 @@ const totalPages = Math.ceil(totalMovies / moviesPerPage);
     🎬 {totalMovies} películas
   </div>
 
-  <div
-    style={{
-      background: "#1a1a1a",
-      padding: "10px 18px",
-      borderRadius: "12px",
-      color: "white",
-      fontWeight: "bold",
-      fontSize: "18px",
-    }}
-  >
-    👀 Próximamente
-  </div>
+  <VisitsDisplay />
+
 </div>
 
   <p
