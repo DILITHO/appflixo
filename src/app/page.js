@@ -41,7 +41,7 @@ const totalPages = Math.ceil(totalMovies / moviesPerPage);
         fontFamily: "Arial",
       }}
     >
-
+<VisitCounter />
       <div
   style={{
     textAlign: "center",
