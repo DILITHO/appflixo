@@ -9,13 +9,21 @@ export default function VisitCounter() {
 
     if (lastVisit === today) return;
 
-    localStorage.setItem("appflixo-last-visit", today);
-
     fetch("/api/visits", {
       method: "POST",
+      cache: "no-store",
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(async (res) => {
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || "Error registrando visita");
+        }
+
+        console.log("Visita registrada:", data);
+
+        localStorage.setItem("appflixo-last-visit", today);
+
         window.dispatchEvent(
           new CustomEvent("appflixo-visit-updated", {
             detail: data.count,
