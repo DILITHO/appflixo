@@ -21,6 +21,9 @@ export const metadata = {
   verification: {
     google: "ByinOQQ5fgbyh1wwuc97wejVDTI-5NU5iFWy2SSWxQk",
   },
+    icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
