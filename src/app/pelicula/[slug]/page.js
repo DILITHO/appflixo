@@ -53,22 +53,31 @@ export default async function MoviePage({ params }) {
       }}
     >
 
+      
       {/* BOTÓN INICIO */}
       <Link
         href="/"
         style={{
-          display: "inline-block",
-          marginBottom: "25px",
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "10px",
+          marginBottom: "30px",
           color: "white",
           textDecoration: "none",
-          background: "#1f1f1f",
-          padding: "10px 16px",
-          borderRadius: "10px",
+          background: "linear-gradient(135deg, #e50914, #99000a)",
+          padding: "13px 24px",
+          borderRadius: "12px",
           fontWeight: "bold",
+          fontSize: "16px",
+          border: "1px solid rgba(255,255,255,0.2)",
+          boxShadow: "0 4px 18px rgba(229,9,20,0.35)",
+          transition: "all 0.3s ease",
         }}
       >
-        🏠 Inicio
+        🏠 Volver al inicio
       </Link>
+
 
       <h1
         style={{
