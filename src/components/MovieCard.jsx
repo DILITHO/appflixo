@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PosterImage from "./PosterImage";
 export default function MovieCard({ movie }) {
   return (
     <Link
@@ -18,16 +19,17 @@ export default function MovieCard({ movie }) {
       flexDirection: "column",
     }}
     >
-      <img
-        src={movie.poster}
-        alt={movie.title}
-        style={{
-          width: "100%",
-          height: "320px",
-          objectFit: "cover",
-          display: "block",
-        }}
-      />
+      
+<PosterImage
+  src={movie.poster}
+  alt={movie.title}
+  style={{
+    width: "100%",
+    height: "320px",
+    objectFit: "cover",
+    display: "block",
+  }}
+/>
 
       <div style={{ padding: "20px" }}>
         <h2

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import PosterImage from "./PosterImage";
+
 
 export default function SearchBar({ movies }) {
   const [search, setSearch] = useState("");
@@ -62,16 +64,17 @@ export default function SearchBar({ movies }) {
                   borderBottom: "1px solid #333",
                 }}
               >
-                <img
-                  src={movie.poster}
-                  alt={movie.title}
-                  style={{
-                    width: "50px",
-                    height: "75px",
-                    objectFit: "cover",
-                    borderRadius: "6px",
-                  }}
-                />
+                
+<PosterImage
+  src={movie.poster}
+  alt={movie.title}
+  style={{
+    width: "50px",
+    height: "75px",
+    objectFit: "cover",
+    borderRadius: "6px",
+  }}
+/>
 
                 <div>
                   <strong>{movie.title}</strong>

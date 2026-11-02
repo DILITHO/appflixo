@@ -5,6 +5,8 @@ import {
 
 import Link from "next/link";
 import DownloadButton from "../../../components/DownloadButton";
+import PosterImage from "../../../components/PosterImage";
+
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -78,18 +80,20 @@ export default async function MoviePage({ params }) {
         {movie.title}
       </h1>
 
-      <img
-        src={movie.poster}
-        alt={movie.title}
-        style={{
-          width: "100%",
-          maxWidth: "400px",
-          borderRadius: "15px",
-          display: "block",
-          marginBottom: "25px",
-          boxShadow: "0 0 25px rgba(0,0,0,.6)",
-        }}
-      />
+      
+<PosterImage
+  src={movie.poster}
+  alt={movie.title}
+  style={{
+    width: "100%",
+    maxWidth: "400px",
+    borderRadius: "15px",
+    display: "block",
+    marginBottom: "25px",
+    boxShadow: "0 0 25px rgba(0,0,0,.6)",
+  }}
+/>
+
 
       <p
         style={{
@@ -184,15 +188,17 @@ export default async function MoviePage({ params }) {
                 overflow: "hidden",
               }}
             >
-              <img
-                src={item.poster}
-                alt={item.title}
-                style={{
-                  width: "100%",
-                  height: "260px",
-                  objectFit: "cover",
-                }}
-              />
+              
+<PosterImage
+  src={item.poster}
+  alt={item.title}
+  style={{
+    width: "100%",
+    height: "260px",
+    objectFit: "cover",
+  }}
+/>
+
 
               <div style={{ padding: "12px" }}>
                 <strong>{item.title}</strong>

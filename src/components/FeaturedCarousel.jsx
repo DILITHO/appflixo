@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import PosterImage from "./PosterImage";
 
 export default function FeaturedCarousel({ movies }) {
   const [current, setCurrent] = useState(0);
@@ -126,16 +127,18 @@ export default function FeaturedCarousel({ movies }) {
           order: isMobile ? 1 : 2,
         }}
       >
-        <img
-          src={movie.poster}
-          alt={movie.title}
-          style={{
-            width: "100%",
-            maxWidth: isMobile ? "260px" : "320px",
-            borderRadius: "18px",
-            boxShadow: "0 0 35px rgba(0,0,0,.6)",
-          }}
-        />
+        
+<PosterImage
+  src={movie.poster}
+  alt={movie.title}
+  style={{
+    width: "100%",
+    maxWidth: isMobile ? "260px" : "320px",
+    borderRadius: "18px",
+    boxShadow: "0 0 35px rgba(0,0,0,.6)",
+  }}
+/>
+
       </div>
     </section>
   );
